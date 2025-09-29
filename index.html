@@ -266,11 +266,7 @@
           tags: ["Culture", "Tranquility", "Anime"],
           image:
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder",
-          content: `<p>The samurai were the military nobility of medieval and early-modern Japan. Guided by the bushido code, they valued loyalty, self-discipline, courage, and honor above all else. Their lives were shaped by a deep sense of duty to their lords and families.</p>
-            <h3 class='mt-4 font-semibold'>Bushido: The Samurai Code</h3>
-            <p>Bushido, meaning "the way of the warrior," was a moral code that influenced every aspect of a samurai's life, from combat to personal conduct. It stressed virtues such as honesty, respect, and compassion.</p>
-            <h3 class='mt-4 font-semibold'>Legacy</h3>
-            <p>Even today, the samurai spirit inspires Japanese culture, arts, and philosophy, representing discipline and tranquility in the face of adversity.</p>`,
+          link: "samurai-way.html",
         },
         {
           id: "p2",
@@ -281,13 +277,8 @@
           tags: ["History", "Industrialization", "Guns"],
           image:
             "https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder",
-          content: `<p>The samurai, once the backbone of Japanese society, faced their tragic end with the import of industrial guns in the 19th century. Traditional swordsmanship and valor were no match for the new technology brought by Western powers.</p>
-            <h3 class='mt-4 font-semibold'>The Meiji Restoration</h3>
-            <p>During the Meiji Restoration, Japan rapidly modernized its military. Firearms replaced swords, and the samurai class lost its privileges and status.</p>
-            <h3 class='mt-4 font-semibold'>Legacy</h3>
-            <p>The legacy of the samurai lives on in Japanese culture, but their era ended as the country embraced modernization and new forms of warfare.</p>`,
+          link: "samurai-end.html",
         },
-
         {
           id: "p3",
           title: "The Glory of the Samurai",
@@ -297,11 +288,7 @@
           tags: ["Weapons", "Feudal Japan", "Samurai"],
           image:
             "https://images.unsplash.com/photo-1702328055667-8d79e27d2211?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          content: `<p>The glory of the samurai was built on a foundation of unwavering loyalty and fearless courage. Their legendary exploits in battle and steadfast devotion to their code made them icons of honor and tradition in Japan.</p>
-            <h3 class='mt-4 font-semibold'>Bravery in Battle</h3>
-            <p>Samurai warriors were renowned for their skill and valor, often facing overwhelming odds with determination and discipline.</p>
-            <h3 class='mt-4 font-semibold'>Legacy of Honor</h3>
-            <p>Their legacy continues to inspire, symbolizing the pursuit of excellence and the importance of living with integrity.</p>`,
+          link: "samurai-glory.html",
         },
       ];
 
@@ -324,69 +311,37 @@
           el.className =
             "rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden bg-white dark:bg-slate-800";
           el.innerHTML = `
-            <div class="p-0">
-              <img src="${post.image}" alt="${post.title}" class="post-cover">
-            </div>
-            <div class="p-4">
-              <h4 class="text-lg font-semibold"><a href="#" data-id="${
-                post.id
-              }" class="open-post">${post.title}</a></h4>
-              <div class="text-xs text-slate-500 mt-1">${new Date(
-                post.date
-              ).toLocaleDateString()}</div>
-              <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">${
-                post.excerpt
-              }</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                ${post.tags
-                  .map(
-                    (t) =>
-                      `<span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">${t}</span>`
-                  )
-                  .join("")}
-              </div>
-            </div>
-          `;
+        <div class="p-0">
+          <img src="${post.image}" alt="${post.title}" class="post-cover">
+        </div>
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">
+          <a href="${
+            post.link
+          }" class="open-post" target="_blank" rel="noopener">${post.title}</a>
+          </h4>
+          <div class="text-xs text-slate-500 mt-1">${new Date(
+            post.date
+          ).toLocaleDateString()}</div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">${
+            post.excerpt
+          }</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+          ${post.tags
+            .map(
+              (t) =>
+                `<span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">${t}</span>`
+            )
+            .join("")}
+          </div>
+        </div>
+        `;
           postGrid.appendChild(el);
         });
         displayed += slice.length;
         countEl.textContent = filtered.length;
         if (displayed >= filtered.length) loadMoreBtn.style.display = "none";
         else loadMoreBtn.style.display = "inline-block";
-        attachOpenHandlers();
-      }
-
-      function attachOpenHandlers() {
-        document.querySelectorAll(".open-post").forEach((a) => {
-          a.onclick = (e) => {
-            e.preventDefault();
-            const id = a.dataset.id;
-            openPost(id);
-          };
-        });
-      }
-
-      // Modal logic
-      const postModal = document.getElementById("postModal");
-      const modalTitle = document.getElementById("modalTitle");
-      const modalMeta = document.getElementById("modalMeta");
-      const modalImg = document.getElementById("modalImg");
-      const modalContent = document.getElementById("modalContent");
-      document.getElementById("closeModal").onclick = () => {
-        postModal.classList.add("hidden");
-      };
-      postModal.onclick = (e) => {
-        if (e.target === postModal) postModal.classList.add("hidden");
-      };
-
-      function openPost(id) {
-        const p = POSTS.find((x) => x.id === id);
-        if (!p) return;
-        modalTitle.textContent = p.title;
-        modalMeta.textContent = new Date(p.date).toLocaleDateString();
-        modalImg.src = p.image;
-        modalContent.innerHTML = p.content;
-        postModal.classList.remove("hidden");
       }
 
       // Search
