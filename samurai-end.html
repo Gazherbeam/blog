@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The End of the Samurai Era</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80")
+          repeat-x center center/cover;
+        animation: pan-bg 40s linear infinite;
+        opacity: 0.18;
+      }
+      @keyframes pan-bg {
+        0% {
+          background-position-x: 0;
+        }
+        100% {
+          background-position-x: -1000px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center p-6">
+    <header
+      class="w-full max-w-3xl bg-white rounded-lg shadow-md p-6 mb-6 flex flex-col md:flex-row items-center justify-between border border-gray-200"
+    >
+      <h1 class="text-3xl font-bold text-gray-800 mb-4 md:mb-0">
+        The End of the Samurai Era
+      </h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li>
+            <a
+              href="index.html"
+              class="text-blue-600 hover:underline font-semibold"
+              >Return Home</a
+            >
+          </li>
+          <li>
+            <a href="#history" class="text-blue-600 hover:underline">History</a>
+          </li>
+          <li>
+            <a href="#media" class="text-blue-600 hover:underline">Media</a>
+          </li>
+          <li>
+            <a href="#table" class="text-blue-600 hover:underline">Timeline</a>
+          </li>
+          <li>
+            <a href="#feedback" class="text-blue-600 hover:underline"
+              >Feedback</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="w-full max-w-3xl flex flex-col gap-8">
+      <!-- History Section -->
+      <section
+        id="history"
+        class="bg-white rounded-lg p-6 border border-gray-200"
+      >
+        <h2 class="text-2xl font-semibold mb-4">A Brief History</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="mb-4">
+              The samurai were the military nobility and officer caste of
+              medieval and early-modern Japan. Their era ended during the Meiji
+              Restoration, as Japan modernized and abolished the feudal system.
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Samurai code: Bushido</li>
+              <li>Key event: Meiji Restoration (1868)</li>
+              <li>Abolition of samurai privileges</li>
+              <li>Modernization of Japan's military</li>
+            </ul>
+          </div>
+          <div class="flex items-center justify-center">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Samurai_in_armor.jpg"
+              alt="Samurai in armor"
+              class="rounded-lg border border-gray-300 shadow-md max-h-48"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Media Section -->
+      <section
+        id="media"
+        class="bg-white rounded-lg p-6 border border-gray-200"
+      >
+        <h2 class="text-2xl font-semibold mb-4">Media & Videos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Example video embed -->
+          <div class="flex flex-col items-center">
+            <iframe
+              class="w-full h-48 rounded border border-gray-300 mb-2"
+              src="https://www.youtube.com/embed/8wZ2ZD--VTk"
+              title="Samurai Documentary"
+              allowfullscreen
+            ></iframe>
+            <span class="text-sm text-gray-600"
+              >Sample: Samurai Documentary</span
+            >
+          </div>
+          <!-- Placeholder for more media -->
+          <div
+            class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded h-48"
+          >
+            <span class="text-gray-400"
+              >Place your videos, images, or audio here</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Table Section -->
+      <section
+        id="table"
+        class="bg-white rounded-lg p-6 border border-gray-200"
+      >
+        <h2 class="text-2xl font-semibold mb-4">Major Events Timeline</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full border border-gray-300">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="px-4 py-2 border-b">Year</th>
+                <th class="px-4 py-2 border-b">Event</th>
+                <th class="px-4 py-2 border-b">Significance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-2 border-b">1867</td>
+                <td class="px-4 py-2 border-b">Tokugawa Shogunate Ends</td>
+                <td class="px-4 py-2 border-b">End of samurai government</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2 border-b">1868</td>
+                <td class="px-4 py-2 border-b">Meiji Restoration</td>
+                <td class="px-4 py-2 border-b">Restoration of imperial rule</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 border-b">1873</td>
+                <td class="px-4 py-2 border-b">Conscription Law</td>
+                <td class="px-4 py-2 border-b">Modern army replaces samurai</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2">1877</td>
+                <td class="px-4 py-2">Satsuma Rebellion</td>
+                <td class="px-4 py-2">Last stand of the samurai</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Feedback Form Section -->
+      <section
+        id="feedback"
+        class="bg-white rounded-lg p-6 border border-gray-200"
+      >
+        <h2 class="text-2xl font-semibold mb-4">Share Your Thoughts</h2>
+        <form class="flex flex-col gap-4">
+          <div class="flex flex-col md:flex-row gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              class="flex-1 p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              class="flex-1 p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your thoughts on the end of the samurai..."
+            class="p-2 border border-gray-300 rounded"
+          ></textarea>
+          <button
+            type="submit"
+            class="self-end bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="mt-8 text-gray-500 text-sm">
+      &copy; 2024 Samurai History Blog
+    </footer>
+  </body>
+</html>
