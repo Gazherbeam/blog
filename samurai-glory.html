@@ -10,12 +10,15 @@
       body::before {
         content: "";
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: -1;
         background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80")
           repeat-x center center/cover;
-        animation: pan-bg 60s linear infinite;
-        opacity: 0.25;
+        animation: pan-bg 40s linear infinite;
+        opacity: 0.18;
       }
       @keyframes pan-bg {
         0% {
@@ -27,43 +30,99 @@
       }
     </style>
   </head>
-  <body class="bg-black min-h-screen font-sans relative">
+  <body
+    class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 min-h-screen flex flex-col items-center p-6"
+  >
     <!-- Header -->
-    <header class="bg-black/80 text-white p-6 mb-6 border-b-4 border-red-900">
-      <h1 class="text-4xl font-bold text-center">Samurai Glory</h1>
-      <p class="text-center mt-2">
-        Honor, Discipline, and the Way of the Warrior
-      </p>
+    <header
+      class="w-full max-w-3xl bg-gray-900/80 backdrop-blur-md rounded-xl shadow-lg p-8 mb-8 flex flex-col md:flex-row items-center justify-between border border-gray-800"
+    >
+      <h1
+        class="text-4xl font-extrabold text-gray-100 tracking-tight mb-4 md:mb-0"
+      >
+        Samurai Glory
+      </h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="index.html"
+              class="text-blue-400 hover:text-blue-300 font-semibold transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#samurai"
+              class="text-blue-400 hover:text-blue-300 transition"
+              >Samurai</a
+            >
+          </li>
+          <li>
+            <a
+              href="#timeline"
+              class="text-blue-400 hover:text-blue-300 transition"
+              >Timeline</a
+            >
+          </li>
+          <li>
+            <a
+              href="#feedback"
+              class="text-blue-400 hover:text-blue-300 transition"
+              >Feedback</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- Return to Home Link -->
-    <div class="container mx-auto px-4 mb-4">
-      <a href="index.html" class="text-red-400 hover:underline font-semibold"
-        >&larr; Return to Home</a
+    <!-- Return Home Button -->
+    <div class="w-full max-w-3xl flex justify-end mb-4">
+      <a
+        href="index.html"
+        class="bg-blue-700/80 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-800/80 transition"
       >
+        &larr; Return Home
+      </a>
     </div>
 
     <!-- Main Content Grid -->
-    <main class="container mx-auto px-4 flex justify-center">
-      <!-- Lords Info Cards Grid -->
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+    <main class="w-full max-w-3xl flex flex-col gap-10">
+      <section id="samurai" class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Minamoto no Yoshitsune -->
         <div
-          class="bg-gray-900/80 rounded-lg shadow p-8 flex flex-col border border-gray-700"
+          class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md flex flex-col"
         >
-          <h2 class="text-3xl font-bold mb-4 text-center text-white">
+          <h2
+            class="text-2xl font-bold mb-4 text-center text-gray-100 flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h4l2-2 2 2h4a2 2 0 012 2v12a2 2 0 01-2 2z"
+              />
+            </svg>
             Minamoto no Yoshitsune
           </h2>
           <img
             src="https://static.wikia.nocookie.net/dynastywarriors/images/0/07/Yoshitsune-statue.jpg/revision/latest?cb=20100815041441"
             alt="Minamoto no Yoshitsune"
-            class="rounded mb-6 shadow w-full h-56 object-cover object-center"
+            class="rounded-xl border-2 border-blue-900 shadow-lg mb-6 w-full h-56 object-cover object-center"
           />
-          <ul class="mb-6 space-y-2 text-lg text-gray-200">
-            <li><span class="font-semibold">Era:</span> Late Heian</li>
-            <li><span class="font-semibold">Clan:</span> Minamoto</li>
+          <ul class="mb-6 space-y-2 text-lg text-gray-400">
             <li>
-              <span class="font-semibold">Notable Feats:</span>
+              <span class="font-semibold text-gray-100">Era:</span> Late Heian
+            </li>
+            <li>
+              <span class="font-semibold text-gray-100">Clan:</span> Minamoto
+            </li>
+            <li>
+              <span class="font-semibold text-gray-100">Notable Feats:</span>
               Brilliant general of the Genpei War, led the Minamoto to victory
               at the Battle of Dan-no-ura, legendary tactician and tragic hero
               of Japanese history.
@@ -77,27 +136,43 @@
           <a
             href="https://en.wikipedia.org/wiki/Minamoto_no_Yoshitsune"
             target="_blank"
-            class="text-red-400 hover:underline font-semibold"
-            >Read more on Wikipedia &rarr;</a
+            class="text-blue-400 hover:underline font-semibold transition"
           >
+            Read more on Wikipedia &rarr;
+          </a>
         </div>
         <!-- Oda Nobunaga -->
         <div
-          class="bg-gray-900/80 rounded-lg shadow p-8 flex flex-col border border-gray-700"
+          class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md flex flex-col"
         >
-          <h2 class="text-3xl font-bold mb-4 text-center text-white">
+          <h2
+            class="text-2xl font-bold mb-4 text-center text-gray-100 flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h4l2-2 2 2h4a2 2 0 012 2v12a2 2 0 01-2 2z"
+              />
+            </svg>
             Oda Nobunaga
           </h2>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Oda_Nobunaga_Portrait_Sanpoji_Temple_c1582-1586.jpg"
             alt="Oda Nobunaga"
-            class="rounded mb-6 shadow w-full h-56 object-cover object-center"
+            class="rounded-xl border-2 border-blue-900 shadow-lg mb-6 w-full h-56 object-cover object-center"
           />
-          <ul class="mb-6 space-y-2 text-lg text-gray-200">
-            <li><span class="font-semibold">Era:</span> Sengoku</li>
-            <li><span class="font-semibold">Clan:</span> Oda</li>
+          <ul class="mb-6 space-y-2 text-lg text-gray-400">
             <li>
-              <span class="font-semibold">Notable Feats:</span>
+              <span class="font-semibold text-gray-100">Era:</span> Sengoku
+            </li>
+            <li><span class="font-semibold text-gray-100">Clan:</span> Oda</li>
+            <li>
+              <span class="font-semibold text-gray-100">Notable Feats:</span>
               Initiated the unification of Japan, innovative military leader,
               known for his ruthless tactics and modernization.
             </li>
@@ -110,29 +185,46 @@
           <a
             href="https://en.wikipedia.org/wiki/Oda_Nobunaga"
             target="_blank"
-            class="text-red-400 hover:underline font-semibold"
-            >Read more on Wikipedia &rarr;</a
+            class="text-blue-400 hover:underline font-semibold transition"
           >
+            Read more on Wikipedia &rarr;
+          </a>
         </div>
         <!-- Tokugawa Ieyasu -->
         <div
-          class="bg-gray-900/80 rounded-lg shadow p-8 flex flex-col border border-gray-700"
+          class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md flex flex-col"
         >
-          <h2 class="text-3xl font-bold mb-4 text-center text-white">
+          <h2
+            class="text-2xl font-bold mb-4 text-center text-gray-100 flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h4l2-2 2 2h4a2 2 0 012 2v12a2 2 0 01-2 2z"
+              />
+            </svg>
             Tokugawa Ieyasu
           </h2>
           <img
             src="https://cdn.britannica.com/92/127392-050-4AD56D66/Statue-Tokugawa-Ieyasu-Tosho-Shrine-Japan-Nikko.jpg"
             alt="Tokugawa Ieyasu"
-            class="rounded mb-6 shadow w-full h-56 object-cover object-center"
+            class="rounded-xl border-2 border-blue-900 shadow-lg mb-6 w-full h-56 object-cover object-center"
           />
-          <ul class="mb-6 space-y-2 text-lg text-gray-200">
+          <ul class="mb-6 space-y-2 text-lg text-gray-400">
             <li>
-              <span class="font-semibold">Era:</span> Azuchi–Momoyama / Edo
+              <span class="font-semibold text-gray-100">Era:</span>
+              Azuchi–Momoyama / Edo
             </li>
-            <li><span class="font-semibold">Clan:</span> Tokugawa</li>
             <li>
-              <span class="font-semibold">Notable Feats:</span>
+              <span class="font-semibold text-gray-100">Clan:</span> Tokugawa
+            </li>
+            <li>
+              <span class="font-semibold text-gray-100">Notable Feats:</span>
               Founder and first shogun of the Tokugawa shogunate, ruled Japan
               for over 250 years of peace and stability.
             </li>
@@ -144,30 +236,44 @@
           <a
             href="https://en.wikipedia.org/wiki/Tokugawa_Ieyasu"
             target="_blank"
-            class="text-red-400 hover:underline font-semibold"
-            >Read more on Wikipedia &rarr;</a
+            class="text-blue-400 hover:underline font-semibold transition"
           >
+            Read more on Wikipedia &rarr;
+          </a>
         </div>
         <!-- Date Masamune -->
         <div
-          class="bg-gray-900/80 rounded-lg shadow p-8 flex flex-col border border-gray-700"
+          class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md flex flex-col"
         >
-          <h2 class="text-3xl font-bold mb-4 text-center text-white">
+          <h2
+            class="text-2xl font-bold mb-4 text-center text-gray-100 flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h4l2-2 2 2h4a2 2 0 012 2v12a2 2 0 01-2 2z"
+              />
+            </svg>
             Date Masamune
           </h2>
           <img
             src="https://wattention.com/wp-content/uploads/2017/08/Statue-of-Date-Masamune-overlooking-the-city-of-Sendai-from-the-ruins-of-Sendai-Castle-which-is-located-on-a-plateau..png.webp"
             alt="Date Masamune"
-            class="rounded mb-6 shadow w-full h-56 object-cover object-center"
+            class="rounded-xl border-2 border-blue-900 shadow-lg mb-6 w-full h-56 object-cover object-center"
           />
-          <ul class="mb-6 space-y-2 text-lg text-gray-200">
+          <ul class="mb-6 space-y-2 text-lg text-gray-400">
             <li>
-              <span class="font-semibold">Era:</span> Azuchi–Momoyama / Early
-              Edo
+              <span class="font-semibold text-gray-100">Era:</span>
+              Azuchi–Momoyama / Early Edo
             </li>
-            <li><span class="font-semibold">Clan:</span> Date</li>
+            <li><span class="font-semibold text-gray-100">Clan:</span> Date</li>
             <li>
-              <span class="font-semibold">Notable Feats:</span>
+              <span class="font-semibold text-gray-100">Notable Feats:</span>
               Known as the "One-Eyed Dragon," famed for his leadership,
               ambition, and distinctive crescent-moon helmet.
             </li>
@@ -179,17 +285,156 @@
           <a
             href="https://en.wikipedia.org/wiki/Date_Masamune"
             target="_blank"
-            class="text-red-400 hover:underline font-semibold"
-            >Read more on Wikipedia &rarr;</a
+            class="text-blue-400 hover:underline font-semibold transition"
           >
+            Read more on Wikipedia &rarr;
+          </a>
         </div>
+      </section>
+
+      <!-- Timeline Table Section -->
+      <section
+        id="timeline"
+        class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md mt-10"
+      >
+        <h2
+          class="text-2xl font-bold mb-6 text-gray-100 flex items-center gap-2"
+        >
+          <svg
+            class="w-6 h-6 text-blue-400"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 17l4 4 4-4m-4-5v9"></path>
+          </svg>
+          Major Events Timeline
+        </h2>
+        <div class="overflow-x-auto">
+          <table
+            class="min-w-full border border-gray-700 rounded-lg overflow-hidden shadow"
+          >
+            <thead>
+              <tr class="bg-blue-950/60">
+                <th
+                  class="px-6 py-3 border-b text-left text-gray-300 font-semibold"
+                >
+                  Year
+                </th>
+                <th
+                  class="px-6 py-3 border-b text-left text-gray-300 font-semibold"
+                >
+                  Event
+                </th>
+                <th
+                  class="px-6 py-3 border-b text-left text-gray-300 font-semibold"
+                >
+                  Significance
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hover:bg-blue-950/40 transition">
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  1867
+                </td>
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  Tokugawa Shogunate Ends
+                </td>
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  End of samurai government
+                </td>
+              </tr>
+              <tr class="bg-gray-800/60 hover:bg-blue-950/40 transition">
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  1868
+                </td>
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  Meiji Restoration
+                </td>
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  Restoration of imperial rule
+                </td>
+              </tr>
+              <tr class="hover:bg-blue-950/40 transition">
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  1873
+                </td>
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  Conscription Law
+                </td>
+                <td class="px-6 py-3 border-b border-gray-700 text-gray-200">
+                  Modern army replaces samurai
+                </td>
+              </tr>
+              <tr class="bg-gray-800/60 hover:bg-blue-950/40 transition">
+                <td class="px-6 py-3 text-gray-200">1877</td>
+                <td class="px-6 py-3 text-gray-200">Satsuma Rebellion</td>
+                <td class="px-6 py-3 text-gray-200">
+                  Last stand of the samurai
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Feedback Form Section -->
+      <section
+        id="feedback"
+        class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md mt-10"
+      >
+        <h2
+          class="text-2xl font-bold mb-6 text-gray-100 flex items-center gap-2"
+        >
+          <svg
+            class="w-6 h-6 text-blue-400"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2"
+            ></path>
+            <circle cx="12" cy="4" r="2"></circle>
+          </svg>
+          Share Your Thoughts
+        </h2>
+        <form class="flex flex-col gap-6">
+          <div class="flex flex-col md:flex-row gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              class="flex-1 p-3 border border-gray-700 bg-gray-800/70 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              class="flex-1 p-3 border border-gray-700 bg-gray-800/70 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
+            />
+          </div>
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your thoughts on the samurai..."
+            class="p-3 border border-gray-700 bg-gray-800/70 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
+          ></textarea>
+          <button
+            type="submit"
+            class="self-end bg-blue-700/80 text-white px-8 py-3 rounded-lg font-semibold shadow hover:bg-blue-800/80 transition"
+          >
+            Submit
+          </button>
+        </form>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer
-      class="mt-10 text-center text-gray-400 py-4 border-t border-gray-700 bg-black/80"
-    >
+    <footer class="mt-12 text-gray-500 text-sm text-center">
       &copy; 2024 Samurai Glory. All rights reserved.
     </footer>
   </body>

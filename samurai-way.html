@@ -4,166 +4,120 @@
     <meta charset="UTF-8" />
     <title>The Samurai Way</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #e6e6e6;
-        min-height: 100vh;
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
         background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80")
-          repeat-x;
-        background-size: cover;
-        animation: pan-bg 60s linear infinite;
+          repeat-x center center/cover;
+        animation: pan-bg 40s linear infinite;
+        opacity: 0.18;
       }
       @keyframes pan-bg {
         0% {
           background-position-x: 0;
         }
         100% {
-          background-position-x: -1200px;
-        }
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: rgba(20, 20, 20, 0.7);
-        z-index: 0;
-        pointer-events: none;
-      }
-      header {
-        background: rgba(34, 34, 34, 0.7);
-        color: #e6e6e6;
-        padding: 2.5rem 1rem 1.5rem 1rem;
-        text-align: center;
-        border-bottom: 2px solid #bfa76a;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
-        position: relative;
-        z-index: 1;
-      }
-      main {
-        max-width: 720px;
-        margin: 2.5rem auto;
-        background: rgba(30, 30, 30, 0.7);
-        padding: 2.5rem 2rem;
-        border-radius: 14px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.33);
-        position: relative;
-        z-index: 1;
-      }
-      h1 {
-        margin-top: 0;
-        font-size: 2.7rem;
-        letter-spacing: 2px;
-        font-family: "Segoe UI Semibold", "Arial Black", Arial, sans-serif;
-        text-shadow: 0 2px 8px #000a;
-      }
-      h2 {
-        color: #bfa76a;
-        margin-top: 2rem;
-        font-size: 1.35rem;
-        letter-spacing: 1px;
-        border-left: 4px solid #bfa76a;
-        padding-left: 0.7rem;
-        font-weight: 600;
-      }
-      ul {
-        margin-left: 1.5rem;
-        padding-left: 0.5rem;
-      }
-      ul li {
-        margin-bottom: 0.7rem;
-        font-size: 1.08rem;
-        line-height: 1.6;
-        border-left: 2px solid #bfa76a;
-        padding-left: 0.7rem;
-        background: rgba(191, 167, 106, 0.13);
-        border-radius: 4px;
-        color: #e6e6e6;
-      }
-      strong {
-        color: #bfa76a;
-        font-weight: 600;
-      }
-      section {
-        margin-bottom: 2.2rem;
-      }
-      p {
-        font-size: 1.08rem;
-        line-height: 1.7;
-        color: #e6e6e6;
-      }
-      footer {
-        text-align: center;
-        color: #bfa76a;
-        padding: 1.2rem 0 0.7rem 0;
-        font-size: 1rem;
-        background: rgba(34, 34, 34, 0.7);
-        border-top: 2px solid #bfa76a;
-        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.22);
-        position: relative;
-        z-index: 1;
-        margin-top: 2rem;
-      }
-      @media (max-width: 800px) {
-        main {
-          padding: 1.2rem 0.7rem;
-        }
-        h1 {
-          font-size: 2rem;
+          background-position-x: -1000px;
         }
       }
     </style>
   </head>
-  <body>
-    <header>
-      <h1>The Samurai Way</h1>
-      <p>Principles and Philosophy of the Ancient Japanese Warriors</p>
+  <body
+    class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 min-h-screen flex flex-col items-center p-6"
+  >
+    <header
+      class="w-full max-w-3xl bg-gray-900/80 backdrop-blur-md rounded-xl shadow-lg p-8 mb-8 flex flex-col md:flex-row items-center justify-between border border-gray-800"
+    >
+      <div>
+        <h1 class="text-4xl font-extrabold text-gray-100 tracking-tight mb-2">
+          The Samurai Way
+        </h1>
+        <p class="text-gray-400">
+          Principles and Philosophy of the Ancient Japanese Warriors
+        </p>
+      </div>
+      <nav>
+        <a
+          href="index.html"
+          class="bg-blue-700/80 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-800/80 transition ml-0 md:ml-6 mt-4 md:mt-0"
+          >Return to Home</a
+        >
+      </nav>
     </header>
-    <main>
-      <section>
-        <h2>Introduction</h2>
-        <p>
+    <main class="w-full max-w-3xl flex flex-col gap-10">
+      <section
+        class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-100 border-l-4 border-yellow-600 pl-3"
+        >
+          Introduction
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
           The samurai were the noble warriors of feudal Japan, renowned for
           their discipline, honor, and martial skill. Their way of life, known
-          as <strong>Bushido</strong> ("the way of the warrior"), emphasized
-          loyalty, courage, and self-mastery.
+          as <span class="font-semibold text-yellow-400">Bushido</span> ("the
+          way of the warrior"), emphasized loyalty, courage, and self-mastery.
         </p>
       </section>
-      <section>
-        <h2>Core Principles of Bushido</h2>
-        <ul>
+      <section
+        class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-100 border-l-4 border-yellow-600 pl-3"
+        >
+          Core Principles of Bushido
+        </h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-400">
           <li>
-            <strong>Rectitude (Gi):</strong> Righteousness and justice in all
-            actions.
+            <span class="font-semibold text-yellow-400">Rectitude (Gi):</span>
+            Righteousness and justice in all actions.
           </li>
           <li>
-            <strong>Courage (Yu):</strong> Bravery to face danger and adversity.
+            <span class="font-semibold text-yellow-400">Courage (Yu):</span>
+            Bravery to face danger and adversity.
           </li>
           <li>
-            <strong>Benevolence (Jin):</strong> Compassion and kindness towards
-            others.
+            <span class="font-semibold text-yellow-400"
+              >Benevolence (Jin):</span
+            >
+            Compassion and kindness towards others.
           </li>
           <li>
-            <strong>Respect (Rei):</strong> Courtesy and politeness in behavior.
+            <span class="font-semibold text-yellow-400">Respect (Rei):</span>
+            Courtesy and politeness in behavior.
           </li>
           <li>
-            <strong>Honesty (Makoto):</strong> Truthfulness and sincerity.
+            <span class="font-semibold text-yellow-400">Honesty (Makoto):</span>
+            Truthfulness and sincerity.
           </li>
           <li>
-            <strong>Honor (Meiyo):</strong> Upholding one's reputation and moral
-            integrity.
+            <span class="font-semibold text-yellow-400">Honor (Meiyo):</span>
+            Upholding one's reputation and moral integrity.
           </li>
           <li>
-            <strong>Loyalty (Chugi):</strong> Faithfulness to one's lord,
-            family, and principles.
+            <span class="font-semibold text-yellow-400">Loyalty (Chugi):</span>
+            Faithfulness to one's lord, family, and principles.
           </li>
         </ul>
       </section>
-      <section>
-        <h2>Legacy</h2>
-        <p>
+      <section
+        class="bg-gray-900/80 backdrop-blur-md rounded-xl p-8 border border-gray-800 shadow-md"
+      >
+        <h2
+          class="text-2xl font-bold mb-4 text-gray-100 border-l-4 border-yellow-600 pl-3"
+        >
+          Legacy
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
           The samurai way continues to inspire people around the world, offering
           timeless lessons in discipline, respect, and ethical conduct. Its
           influence can be seen in modern martial arts, literature, and
@@ -171,6 +125,8 @@
         </p>
       </section>
     </main>
-    <footer>&copy; 2024 The Samurai Way. All rights reserved.</footer>
+    <footer class="mt-12 text-gray-500 text-sm text-center">
+      &copy; 2024 The Samurai Way. All rights reserved.
+    </footer>
   </body>
 </html>
